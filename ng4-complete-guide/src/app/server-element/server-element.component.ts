@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit,OnChanges, Input, Output, EventEmitter, ViewEncapsulation, SimpleChanges } from '@angular/core';
 
 
 @Component({
@@ -7,26 +7,29 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } fro
   styleUrls: ['./server-element.component.css'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class ServerElementComponent implements OnInit {
+export class ServerElementComponent  {
 
   message: string = "hola mondo ViewChild";
   @Output() message1 = new EventEmitter<string>();
   anuj: string = "hello Anuj";
+  anujg: string = "hello Anujg     ";
 
   @Input('anuj') element: {
     type: string,
     name: string,
     content: string
   };
+
+  @Input() name: string;
   constructor() {
+    console.log("Constructor Call");
   }
+
 
   onAddBlueprint() {
+    this.anujg = "changed value viewchild";
     this.message1.emit(this.anuj);
 
-  }
-
-  ngOnInit() {
   }
 
 }

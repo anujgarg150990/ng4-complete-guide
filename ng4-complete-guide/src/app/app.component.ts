@@ -24,7 +24,7 @@ export class AppComponent implements AfterViewInit {
 
 
   ngAfterViewInit(){
-    this.message = this.child.message;
+    this.message = this.child.anujg;
   }
   onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
@@ -40,7 +40,11 @@ export class AppComponent implements AfterViewInit {
       name: blurprintData.serverName,
       content: blurprintData.serverContent
     });
-
   }
+
+  onChangeFirst(){
+    this.serverElements[0].name = "Changes";
+  }
+
 
 }
