@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ServerElementComponent } from './server-element/server-element.component';
+import { CockpitComponent } from './cockpit/cockpit.component';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class AppComponent implements AfterViewInit {
   messageInput: string = "hello "
 
   anujgarg:string = "hello";
-  @ViewChild(ServerElementComponent) child;
+  @ViewChild(ServerElementComponent) child : ServerElementComponent;
+  @ViewChild(CockpitComponent)  anujtesting: CockpitComponent ;
 
 
   waisehe(e){
@@ -25,6 +27,7 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit(){
     this.message = this.child.anujg;
+    console.log(this.anujtesting.serverContentInput.nativeElement.value)
   }
   onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
